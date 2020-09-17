@@ -9,17 +9,28 @@
 
 // EXAMPLE SOLUTION CODE:
 class Airplane {
-  constructor(name) {
-    this.name = name;
-    this.isFlying = false;
+  constructor(attributes) {
+    this.name = attributes.name;
+    this.isFlying = attributes.false;
   }
+
   takeOff() {
     this.isFlying = true;
+    return `${this.name} is flying.`
   }
+
   land() {
     this.isFlying = false;
+    return `${this.name} is not flying.`
   }
 }
+
+const newAirplane = new Airplane({
+  name: 'Rejuvinator',
+})
+
+console.log(newAirplane.takeOff());
+console.log(newAirplane.land());
 
 /*
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -41,8 +52,39 @@ class Airplane {
 */
 
 class Person {
-
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
+  eat(edible){
+    if (this.stomach.length < 10){
+      this.stomach.push(edible);
+    }
+    console.log(`${this.name} is eating.`)
+  }
+  poop(){
+    this.stomach = [];
+    console.log(`${this.name} is pooping.`)
+  }
+  toString(){
+    console.log(`${this.name} is ${this.age} years old.`)
+  }
 }
+
+const personOne = new Person({
+  name: 'Timmy',
+  age: 4,
+});
+
+const personTwo = new Person({
+  name: 'Lynda',
+  age: 45,
+})
+
+console.log(personOne.eat('someFood'));
+console.log(personTwo.eat('someFood'));
+
 
 /*
   TASK 2
